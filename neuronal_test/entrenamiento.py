@@ -11,15 +11,15 @@ def cargarDataset():
     
     dataForTrainingTest = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
 
-    classCategorical = dataForTraining.flow_from_directory(
+    setCategorical = dataForTraining.flow_from_directory(
         './dataset/entrenamiento', target_size=(150,150), batch_size=32, class_mode='categorical')
     
-    classCategoricalTest = dataForTrainingTest.flow_from_directory(
+    setCategoricalTest = dataForTrainingTest.flow_from_directory(
         './dataset/validacion', target_size=(150,150), batch_size=32, class_mode='categorical')
     
-    print('Clases Entrenamiento:\n',classCategorical.class_indices)
+    print('Clases Entrenamiento:\n',setCategorical.class_indices)
     
-    return classCategorical,classCategoricalTest
+    return setCategorical,setCategoricalTest
 
 def guardarEntrenamiento(net):
     path_datos = './data/'
